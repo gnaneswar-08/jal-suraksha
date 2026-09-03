@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JAL SURAKSHA | Citizen Safety Portal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/citizen.css">
+
+</head>
+
+
+<body class="citizen-page">
+
+
+    <!-- =========================================================
+         TOP BAR
+         ========================================================= -->
+
+    <header class="citizen-topbar">
+
+        <a href="/" class="citizen-brand">
+
+            <div class="brand-logo">
+                💧
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    JAL SURAKSHA
+                </div>
+
+                <div class="brand-subtitle">
+                    CITIZEN SAFETY PORTAL
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <div class="citizen-location">
+
+            <span class="status-dot"></span>
+
+            LOCATION SERVICES ACTIVE
+
+        </div>
+
+
+        <div class="citizen-time">
+
+            <span id="citizen-clock">
+                --:--:--
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+
+    <main class="citizen-main">
+
+
+        <!-- =====================================================
+             LOCATION
+             ===================================================== -->
+
+        <section class="location-card">
+
+            <div>
+
+                <span class="section-label">
+                    YOUR CURRENT AREA
+                </span>
+
+                <h1>
+                    Ward 42
+                </h1>
+
+                <p>
+                    Hyperlocal climate risk information for your area.
+                </p>
+
+            </div>
+
+
+            <button
+                class="location-btn"
+                type="button">
+
+                ⌖ UPDATE LOCATION
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             EMERGENCY ALERT
+             ===================================================== -->
+
+        <section class="emergency-alert">
+
+            <div class="alert-icon">
+                !
+            </div>
+
+
+            <div class="alert-content">
+
+                <span class="alert-label">
+                    ACTIVE EMERGENCY ALERT
+                </span>
+
+                <h2>
+                    HIGH FLOOD RISK DETECTED
+                </h2>
+
+                <p>
+                    Water levels are rising rapidly in your area.
+                    Residents in low-lying zones should prepare
+                    for evacuation.
+                </p>
+
+            </div>
+
+
+            <div class="alert-time">
+
+                DETECTED<br>
+
+                <strong id="alert-clock">
+                    --:--
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RISK OVERVIEW
+             ===================================================== -->
+
+        <section class="risk-overview">
+
+            <div class="section-title-row">
+
+                <div>
+
+                    <span class="section-label">
+                        LIVE CONDITIONS
+                    </span>
+
+                    <h2>
+                        Local Risk Overview
+                    </h2>
+
+                </div>
+
+
+                <span class="live-badge">
+
+                    <span class="live-dot"></span>
+
+                    LIVE
+
+                </span>
+
+            </div>
+
+
+
+            <div class="risk-cards">
+
+
+                <!-- FLOOD -->
+
+                <article class="citizen-risk-card critical">
+
+                    <div class="risk-card-top">
+
+                        <span>
+                            FLOOD RISK
+                        </span>
+
+                        <span class="risk-symbol">
+                            ◉
+                        </span>
+
+                    </div>
+
+
+                    <strong class="risk-value">
+                        HIGH
+                    </strong>
+
+
+                    <p>
+                        Immediate attention required
+                    </p>
+
+
+                    <div class="risk-meter">
+
+                        <div style="width: 84%;"></div>
+
+                    </div>
+
+
+                    <small>
+                        RISK INDEX: 84/100
+                    </small>
+
+                </article>
+
+
+
+                <!-- WATER -->
+
+                <article class="citizen-risk-card water">
+
+                    <div class="risk-card-top">
+
+                        <span>
+                            WATER LEVEL
+                        </span>
+
+                        <span class="risk-symbol">
+                            ≈
+                        </span>
+
+                    </div>
+
+
+                    <strong class="risk-value">
+                        84%
+                    </strong>
+
+
+                    <p>
+                        Rising
+                    </p>
+
+
+                    <div class="risk-meter">
+
+                        <div style="width: 84%;"></div>
+
+                    </div>
+
+
+                    <small>
+                        SENSOR #12
+                    </small>
+
+                </article>
+
+
+
+                <!-- RAIN -->
+
+                <article class="citizen-risk-card rain">
+
+                    <div class="risk-card-top">
+
+                        <span>
+                            RAINFALL
+                        </span>
+
+                        <span class="risk-symbol">
+                            ☁
+                        </span>
+
+                    </div>
+
+
+                    <strong class="risk-value">
+
+                        62
+
+                        <small>
+                            mm/h
+                        </small>
+
+                    </strong>
+
+
+                    <p>
+                        Heavy rainfall
+                    </p>
+
+
+                    <div class="risk-meter">
+
+                        <div style="width: 68%;"></div>
+
+                    </div>
+
+
+                    <small>
+                        WEATHER RADAR
+                    </small>
+
+                </article>
+
+
+
+                <!-- TEMPERATURE -->
+
+                <article class="citizen-risk-card heat">
+
+                    <div class="risk-card-top">
+
+                        <span>
+                            TEMPERATURE
+                        </span>
+
+                        <span class="risk-symbol">
+                            ◌
+                        </span>
+
+                    </div>
+
+
+                    <strong class="risk-value">
+                        34°C
+                    </strong>
+
+
+                    <p>
+                        Elevated
+                    </p>
+
+
+                    <div class="risk-meter">
+
+                        <div style="width: 55%;"></div>
+
+                    </div>
+
+
+                    <small>
+                        LOCAL SENSOR
+                    </small>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ACTION AREA
+             ===================================================== -->
+
+        <section class="action-grid">
+
+
+            <!-- SAFE ROUTE -->
+
+            <article class="action-card safe-route">
+
+                <div class="action-card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            RECOMMENDED ACTION
+                        </span>
+
+                        <h2>
+                            Safe Evacuation Route
+                        </h2>
+
+                    </div>
+
+
+                    <div class="action-icon green">
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div class="route-info">
+
+
+                    <div class="route-point">
+
+                        <span class="route-dot current"></span>
+
+                        <div>
+
+                            <small>
+                                YOUR LOCATION
+                            </small>
+
+                            <strong>
+                                Ward 42
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="route-line"></div>
+
+
+                    <div class="route-point">
+
+                        <span class="route-dot shelter"></span>
+
+                        <div>
+
+                            <small>
+                                SAFE SHELTER
+                            </small>
+
+                            <strong>
+                                Community Center
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="route-details">
+
+                    <span>
+                        ↗ 1.8 KM
+                    </span>
+
+                    <span>
+                        •
+                    </span>
+
+                    <span>
+                        ~ 7 MIN
+                    </span>
+
+                    <span>
+                        •
+                    </span>
+
+                    <strong>
+                        ROUTE CLEAR
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="action-button green-button"
+                    type="button">
+
+                    GET DIRECTIONS
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </article>
+
+
+
+            <!-- NEAREST SHELTER -->
+
+            <article class="action-card shelter-card">
+
+                <div class="action-card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            NEAREST SAFE LOCATION
+                        </span>
+
+                        <h2>
+                            Community Center
+                        </h2>
+
+                    </div>
+
+
+                    <div class="action-icon cyan">
+                        ⌖
+                    </div>
+
+                </div>
+
+
+                <div class="shelter-status">
+
+
+                    <div class="capacity-circle">
+
+                        <span>
+                            62%
+                        </span>
+
+                        <small>
+                            CAPACITY
+                        </small>
+
+                    </div>
+
+
+                    <div class="shelter-details">
+
+                        <div>
+
+                            <small>
+                                STATUS
+                            </small>
+
+                            <strong class="green-text">
+                                OPEN
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <small>
+                                DISTANCE
+                            </small>
+
+                            <strong>
+                                1.8 KM
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="action-button cyan-button"
+                    type="button">
+
+                    VIEW SHELTER
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             EMERGENCY ACTIONS
+             ===================================================== -->
+
+        <section class="emergency-actions">
+
+            <div class="section-title-row">
+
+                <div>
+
+                    <span class="section-label">
+                        EMERGENCY SERVICES
+                    </span>
+
+                    <h2>
+                        Need Immediate Help?
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="emergency-buttons">
+
+
+                <!-- SOS -->
+
+                <button
+                    class="emergency-button sos"
+                    type="button">
+
+                    <span class="emergency-button-icon">
+                        !
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            SOS EMERGENCY
+                        </strong>
+
+                        <small>
+                            Request immediate assistance
+                        </small>
+
+                    </div>
+
+                </button>
+
+
+
+                <!-- REPORT HAZARD -->
+
+                <button
+                    class="emergency-button report"
+                    type="button"
+                    id="reportHazardBtn">
+
+                    <span class="emergency-button-icon">
+                        +
+                    </span>
+
+                    <div class="report-hazard-btn">
+
+                        <strong>
+                            REPORT HAZARD
+                        </strong>
+
+                        <small>
+                            Report flooding or blocked roads
+                        </small>
+
+                    </div>
+
+                </button>
+
+
+
+                <!-- EMERGENCY CONTACTS -->
+
+                <button
+                    class="emergency-button contact"
+                    type="button">
+
+                    <span class="emergency-button-icon">
+                        ☎
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            EMERGENCY CONTACTS
+                        </strong>
+
+                        <small>
+                            Police • Fire • Ambulance
+                        </small>
+
+                    </div>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MY REPORT STATUS
+             ===================================================== -->
+
+        <section
+            class="report-status-section"
+            id="reportStatusSection">
+
+
+            <div class="section-title-row">
+
+                <div>
+
+                    <span class="section-label">
+                        INCIDENT TRACKING
+                    </span>
+
+                    <h2>
+                        My Report Status
+                    </h2>
+
+                </div>
+
+
+                <span class="live-badge">
+
+                    <span class="live-dot"></span>
+
+                    LIVE
+
+                </span>
+
+            </div>
+
+
+
+            <!-- REPORT STATUS CARD -->
+
+            <div class="report-status-card">
+
+
+                <!-- HEADER -->
+
+                <div class="report-status-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            REPORT ID
+                        </span>
+
+                        <strong id="citizen-report-id">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div
+                        class="report-status-badge"
+                        id="citizen-report-status">
+
+                        WAITING
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="report-status-location">
+
+                    <span>
+                        📍
+                    </span>
+
+                    <div>
+
+                        <small>
+                            REPORTED LOCATION
+                        </small>
+
+                        <strong id="citizen-report-location">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     STATUS TIMELINE
+                     ================================================= -->
+
+                <div class="status-timeline">
+
+
+                    <!-- SUBMITTED -->
+
+                    <div
+                        class="status-step completed"
+                        id="status-submitted">
+
+                        <div class="status-circle">
+                            ✓
+                        </div>
+
+                        <div class="status-step-content">
+
+                            <strong>
+                                SUBMITTED
+                            </strong>
+
+                            <span>
+                                Report received
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ACKNOWLEDGED -->
+
+                    <div
+                        class="status-step"
+                        id="status-acknowledged">
+
+                        <div class="status-circle">
+                            2
+                        </div>
+
+                        <div class="status-step-content">
+
+                            <strong>
+                                ACKNOWLEDGED
+                            </strong>
+
+                            <span>
+                                Officer has received your report
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DISPATCHED -->
+
+                    <div
+                        class="status-step"
+                        id="status-dispatched">
+
+                        <div class="status-circle">
+                            3
+                        </div>
+
+                        <div class="status-step-content">
+
+                            <strong>
+                                DISPATCHED
+                            </strong>
+
+                            <span>
+                                Response team dispatched
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- IN PROGRESS -->
+
+                    <div
+                        class="status-step"
+                        id="status-in-progress">
+
+                        <div class="status-circle">
+                            4
+                        </div>
+
+                        <div class="status-step-content">
+
+                            <strong>
+                                IN PROGRESS
+                            </strong>
+
+                            <span>
+                                Response team is working
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RESOLVED -->
+
+                    <div
+                        class="status-step"
+                        id="status-resolved">
+
+                        <div class="status-circle">
+                            5
+                        </div>
+
+                        <div class="status-step-content">
+
+                            <strong>
+                                RESOLVED
+                            </strong>
+
+                            <span>
+                                Incident has been resolved
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- STATUS MESSAGE -->
+
+                <div
+                    class="report-status-message"
+                    id="citizen-status-message">
+
+                    Your report status will appear here.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             INFORMATION
+             ===================================================== -->
+
+        <section class="citizen-info">
+
+
+            <!-- WHY THIS ALERT -->
+
+            <div class="info-card">
+
+                <span class="section-label">
+                    WHY THIS ALERT?
+                </span>
+
+                <h2>
+                    Risk signals detected around you
+                </h2>
+
+                <p>
+                    JAL SURAKSHA combines local environmental
+                    signals to provide a clearer picture of
+                    conditions in your area.
+                </p>
+
+
+                <div class="signal-list">
+
+
+                    <div>
+
+                        <span class="signal-icon">
+                            ●
+                        </span>
+
+                        IoT water sensor detected elevated levels
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="signal-icon">
+                            ●
+                        </span>
+
+                        Heavy rainfall detected by weather radar
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="signal-icon">
+                            ●
+                        </span>
+
+                        Low-lying roads have increased flood risk
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PREPAREDNESS -->
+
+            <div class="info-card preparedness">
+
+                <span class="section-label">
+                    STAY PREPARED
+                </span>
+
+                <h2>
+                    If conditions worsen
+                </h2>
+
+
+                <ul>
+
+                    <li>
+                        Keep your phone charged.
+                    </li>
+
+                    <li>
+                        Carry essential medicines and documents.
+                    </li>
+
+                    <li>
+                        Follow verified evacuation routes.
+                    </li>
+
+                    <li>
+                        Do not enter flooded roads.
+                    </li>
+
+                    <li>
+                        Follow official emergency instructions.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="citizen-footer">
+
+
+        <div>
+
+            <strong>
+                💧 JAL SURAKSHA
+            </strong>
+
+            <span>
+                Citizen Safety Network
+            </span>
+
+        </div>
+
+
+        <div>
+
+            DATA STATUS:
+
+            <strong class="green-text">
+                CONNECTED
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            © 2026 JAL SURAKSHA
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         CITIZEN JAVASCRIPT
+         ========================================================= -->
+
+    <script src="{{ url_for('static', filename='js/citizen.js') }}"></script>
+
+</body>
+
+</html>

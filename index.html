@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JAL SURAKSHA | Climate Intelligence</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Your existing CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <!-- Brand -->
+        <a href="/" class="brand" style="text-decoration:none; color:inherit;">
+
+            <div class="brand-logo">
+                💧
+            </div>
+
+            <div>
+                <div class="brand-name">
+                    JAL SURAKSHA
+                </div>
+
+                <div class="brand-subtitle">
+                    CLIMATE INTELLIGENCE
+                </div>
+            </div>
+
+        </a>
+
+
+        <!-- Navigation -->
+        <nav class="nav-links">
+
+            <a href="#overview" class="active">
+                Overview
+            </a>
+
+            <a href="#problem">
+                Why Us
+            </a>
+
+            <a href="#process">
+                How It Works
+            </a>
+
+            <a href="#citizen">
+                For Citizens
+            </a>
+
+            <a href="#responder">
+                For Responders
+            </a>
+
+        </nav>
+
+
+        <!-- Right Actions -->
+        <div class="nav-actions">
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
+            </div>
+
+            <button class="platform-btn" id="platformBtn">
+                ENTER PLATFORM
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero" id="overview">
+
+            <!-- LEFT -->
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    <span class="pulse-dot"></span>
+                    HYPERLOCAL CLIMATE INTELLIGENCE
+                </div>
+
+
+                <h1>
+                    Know the Risk.
+                    <span>Act Before<br>It Escalates.</span>
+                </h1>
+
+
+                <p class="hero-description">
+
+                    JAL SURAKSHA turns scattered climate signals, sensors
+                    and field intelligence into a clear, actionable
+                    street-level risk picture. Helping communities prepare
+                    earlier and emergency teams respond faster.
+
+                </p>
+
+
+                <!-- Buttons -->
+                <div class="hero-buttons">
+
+                    <button
+                        class="primary-btn"
+                        id="checkRiskBtn">
+
+                        CHECK LOCAL RISK
+                        <span>→</span>
+
+                    </button>
+
+
+                    <button
+                        class="secondary-btn"
+                        id="exploreBtn">
+
+                        <span class="play-icon">▶</span>
+
+                        EXPLORE JAL SURAKSHA
+
+                    </button>
+
+                </div>
+
+
+                <!-- Features -->
+                <div class="hero-features">
+
+                    <div>
+                        <span class="check">✓</span>
+                        REAL-TIME DATA
+                    </div>
+
+                    <div>
+                        <span class="check">✓</span>
+                        STREET-LEVEL INTELLIGENCE
+                    </div>
+
+                    <div>
+                        <span class="check">✓</span>
+                        ACTIONABLE ALERTS
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT RISK PANEL -->
+            <div class="risk-panel">
+
+                <div class="risk-header">
+
+                    <div>
+                        <span class="live-dot"></span>
+                        LIVE RISK GRID
+                    </div>
+
+                    <div class="coordinates">
+                        WARD 42
+                        <span>•</span>
+                        <span id="liveTime">14:24:16</span>
+                    </div>
+
+                </div>
+
+
+                <!-- MAP -->
+                <div class="map-grid">
+
+                    <div class="grid-lines"></div>
+
+                    <div class="river"></div>
+
+
+                    <!-- Risk Zones -->
+
+                    <div class="risk-zone critical-zone">
+                        <span class="zone-label">
+                            CRITICAL
+                        </span>
+                    </div>
+
+
+                    <div class="risk-zone high-zone">
+                        <span class="zone-label">
+                            HIGH
+                        </span>
+                    </div>
+
+
+                    <div class="risk-zone safe-zone">
+                        <span class="zone-label">
+                            SAFE
+                        </span>
+                    </div>
+
+
+                    <!-- Evacuation Route -->
+
+                    <div class="evacuation-route"></div>
+
+
+                    <!-- Markers -->
+
+                    <div class="map-marker marker-red">
+                        !
+                    </div>
+
+                    <div class="map-marker marker-blue">
+                        •
+                    </div>
+
+                    <div class="map-marker marker-green">
+                        ★
+                    </div>
+
+
+                    <!-- IoT Card -->
+
+                    <div class="map-data-card sensor-card">
+
+                        <div class="sensor-icon">
+                            ≋
+                        </div>
+
+                        <div>
+
+                            <small>
+                                IoT #12
+                            </small>
+
+                            <strong>
+                                84%
+                            </strong>
+
+                            <span>
+                                Inundation
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Rain Card -->
+
+                    <div class="map-data-card rain-card">
+
+                        <div class="rain-icon">
+                            ☁
+                        </div>
+
+                        <div>
+
+                            <small>
+                                RAIN
+                            </small>
+
+                            <strong>
+                                62
+                            </strong>
+
+                            <span>
+                                mm/h
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Risk Status -->
+
+                    <div class="risk-status-card">
+
+                        <div class="risk-status-title">
+
+                            <span class="live-dot"></span>
+
+                            <span>
+                                LIVE RISK STATUS
+                            </span>
+
+                            <span>
+                                #042
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Ward 42
+                        </h3>
+
+
+                        <div class="risk-stats">
+
+                            <div>
+
+                                <small>
+                                    FLOOD RISK
+                                </small>
+
+                                <strong class="red-text">
+                                    HIGH
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    WATER LEVEL
+                                </small>
+
+                                <strong class="cyan-text">
+                                    84%
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="water-bar">
+                            <div></div>
+                        </div>
+
+
+                        <div class="updated">
+                            UPDATED <span id="riskTime">14:24:16</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TELEMETRY BAR
+        ================================================== -->
+
+        <section class="telemetry-bar">
+
+            <div class="telemetry-item online">
+
+                <span class="telemetry-icon">●</span>
+
+                <strong>
+                    SYSTEM ONLINE
+                </strong>
+
+            </div>
+
+
+            <div class="telemetry-item">
+
+                <span class="telemetry-icon">◉</span>
+
+                WEATHER RADAR CONNECTED
+
+            </div>
+
+
+            <div class="telemetry-item">
+
+                <span class="telemetry-icon">⌁</span>
+
+                IoT SENSORS
+                <strong>12/12</strong>
+
+            </div>
+
+
+            <div class="telemetry-item">
+
+                <span class="telemetry-icon">◇</span>
+
+                RISK ENGINE
+                <strong>ACTIVE</strong>
+
+            </div>
+
+
+            <div class="telemetry-item alert">
+
+                <span class="telemetry-icon">♧</span>
+
+                ACTIVE ALERTS
+
+                <strong>
+                    04
+                </strong>
+
+            </div>
+
+
+            <div class="telemetry-item">
+
+                <span class="telemetry-icon">↻</span>
+
+                LAST REFRESH
+
+                <strong id="telemetryTime">
+                    14:24:16
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROBLEM SECTION
+        ================================================== -->
+
+        <section
+            class="problem-section scroll-hidden"
+            id="problem">
+
+            <div class="section-heading">
+
+                <span>
+                    THE PROBLEM
+                </span>
+
+                <h2>
+                    Climate risk is local.
+                    Warnings shouldn't be generic.
+                </h2>
+
+                <p>
+                    Extreme weather does not affect every street equally.
+                    JAL SURAKSHA focuses on the hyperlocal signals that
+                    matter where people actually live, travel and respond.
+                </p>
+
+            </div>
+
+
+            <div class="problem-grid">
+
+
+                <!-- Card 1 -->
+
+                <article class="problem-card red-card">
+
+                    <div class="card-number">
+                        01
+                    </div>
+
+                    <div class="problem-icon">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Scattered Signals
+                    </h3>
+
+                    <p>
+                        Weather data, sensors and field observations
+                        often exist across separate systems.
+                    </p>
+
+                    <strong>
+                        DATA FRAGMENTATION
+                    </strong>
+
+                </article>
+
+
+                <!-- Card 2 -->
+
+                <article class="problem-card orange-card">
+
+                    <div class="card-number">
+                        02
+                    </div>
+
+                    <div class="problem-icon">
+                        ⌖
+                    </div>
+
+                    <h3>
+                        Unclear Risk
+                    </h3>
+
+                    <p>
+                        Regional warnings don't always explain what
+                        is happening on a specific street or route.
+                    </p>
+
+                    <strong>
+                        LOCAL CONTEXT GAP
+                    </strong>
+
+                </article>
+
+
+                <!-- Card 3 -->
+
+                <article class="problem-card yellow-card">
+
+                    <div class="card-number">
+                        03
+                    </div>
+
+                    <div class="problem-icon">
+                        ◷
+                    </div>
+
+                    <h3>
+                        Delayed Action
+                    </h3>
+
+                    <p>
+                        Without a clear local picture, valuable
+                        response time can be lost.
+                    </p>
+
+                    <strong>
+                        RESPONSE DELAY
+                    </strong>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOW IT WORKS
+        ================================================== -->
+
+        <section
+            class="process-section scroll-hidden"
+            id="process">
+
+            <div class="section-heading">
+
+                <span>
+                    RESPONSE PIPELINE
+                </span>
+
+                <h2>
+                    From signal to action.
+                </h2>
+
+                <p>
+                    JAL SURAKSHA converts multiple environmental
+                    signals into clear, prioritized safety decisions.
+                </p>
+
+            </div>
+
+
+            <div class="process-grid">
+
+
+                <article class="process-card">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <h3>
+                        COLLECT
+                    </h3>
+
+                    <p>
+                        Collect rainfall, water-level, weather,
+                        sensor and field intelligence from multiple
+                        sources.
+                    </p>
+
+                    <span>
+                        MULTI-SOURCE DATA INGESTION
+                    </span>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <h3>
+                        ANALYZE
+                    </h3>
+
+                    <p>
+                        Analyze hyperlocal environmental conditions
+                        and identify changing flood-risk patterns.
+                    </p>
+
+                    <span>
+                        HYPERLOCAL RISK ENGINE
+                    </span>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <h3>
+                        PRIORITIZE
+                    </h3>
+
+                    <p>
+                        Rank incidents according to severity,
+                        water rise, vulnerable locations and
+                        response requirements.
+                    </p>
+
+                    <span>
+                        TRIAGE MATRIX RANKED
+                    </span>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <h3>
+                        ACT
+                    </h3>
+
+                    <p>
+                        Deliver clear evacuation guidance to citizens
+                        while helping responders coordinate intervention.
+                    </p>
+
+                    <span>
+                        ACTION INITIATED
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PORTALS
+        ================================================== -->
+
+        <section
+            class="portal-section scroll-hidden"
+            id="citizen">
+
+            <div class="section-heading">
+
+                <span>
+                    DUAL-ENGINE ARCHITECTURE
+                </span>
+
+                <h2>
+                    Unified disaster intelligence,
+                    two purposeful portals.
+                </h2>
+
+                <p>
+                    Built for citizens who need immediate safety
+                    information and responders who need operational
+                    intelligence.
+                </p>
+
+            </div>
+
+
+            <div class="portal-grid">
+
+
+                <!-- Citizen -->
+
+                <article
+                    class="portal-card citizen-card">
+
+                    <div class="portal-tag">
+                        PUBLIC SAFETY & ESCAPE GUIDANCE
+                    </div>
+
+                    <h3>
+                        Citizen Safety Portal
+                    </h3>
+
+                    <p>
+                        Get a clear picture of what's happening around
+                        you and receive simple safety guidance when
+                        every minute matters.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Live Hyperlocal Risk Score
+                        </li>
+
+                        <li>
+                            Safe Evacuation Routes
+                        </li>
+
+                        <li>
+                            Nearby Shelter Information
+                        </li>
+
+                        <li>
+                            Local Hazard Reporting
+                        </li>
+
+                    </ul>
+
+
+                    <button
+                        class="portal-btn citizen-btn"
+                        id="citizenPortalBtn">
+
+                        ENTER CITIZEN PORTAL →
+
+                    </button>
+
+                </article>
+
+
+                <!-- Responder -->
+
+                <article
+                    class="portal-card responder-card"
+                    id="responder">
+
+                    <div class="portal-tag">
+                        INCIDENT COMMAND CENTER
+                    </div>
+
+                    <h3>
+                        Officer Command Center
+                    </h3>
+
+                    <p>
+                        Give emergency teams the operational
+                        intelligence needed to prioritize incidents
+                        and coordinate response resources.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Ranked Incident Queue
+                        </li>
+
+                        <li>
+                            Live Sensor & Risk Telemetry
+                        </li>
+
+                        <li>
+                            Shelter Capacity Monitoring
+                        </li>
+
+                        <li>
+                            Emergency Dispatch Support
+                        </li>
+
+                    </ul>
+
+
+                    <button
+                        class="portal-btn responder-btn"
+                        id="officerPortalBtn">
+
+                        ENTER COMMAND CENTER →
+
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL CTA
+        ================================================== -->
+
+        <section class="final-cta scroll-hidden">
+
+            <div class="cta-glow"></div>
+
+            <span>
+                BE PREPARED BEFORE RISK BECOMES REALITY
+            </span>
+
+            <h2>
+                Make every flood warning actionable.
+            </h2>
+
+            <p>
+                Know the street-level risk.
+                Choose the safest response.
+                Help your community act before conditions escalate.
+            </p>
+
+
+            <button
+                class="primary-btn"
+                id="finalRiskBtn">
+
+                CHECK LOCAL RISK
+                <span>→</span>
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-brand">
+
+            <strong>
+                💧 JAL SURAKSHA
+            </strong>
+
+            <p>
+                Hyperlocal climate intelligence
+                for public safety and emergency response.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <strong>
+                CITIZENS
+            </strong>
+
+            <a href="/citizen">
+                Citizen Portal
+            </a>
+
+            <a href="#overview">
+                Risk Information
+            </a>
+
+            <a href="#problem">
+                Safety Guidance
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <strong>
+                INCIDENT COMMAND
+            </strong>
+
+            <a href="/officer">
+                Officer Command
+            </a>
+
+            <a href="#process">
+                Response Pipeline
+            </a>
+
+            <a href="#responder">
+                Emergency Operations
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <strong>
+                SYSTEM
+            </strong>
+
+            <a href="#overview">
+                Live Risk Grid
+            </a>
+
+            <a href="#process">
+                Risk Engine
+            </a>
+
+            <a href="#overview">
+                System Status
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Your JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

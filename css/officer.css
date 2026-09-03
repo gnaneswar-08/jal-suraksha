@@ -1,0 +1,2058 @@
+/* =========================================================
+   JAL SURAKSHA
+   OFFICER COMMAND CENTER
+   ========================================================= */
+
+:root {
+
+    --obsidian: #0B0F17;
+    --panel: #121824;
+    --panel-light: #182231;
+    --border: #1E293B;
+
+    --red: #EF4444;
+    --orange: #F97316;
+    --yellow: #FBBF24;
+    --green: #10B981;
+    --cyan: #06B6D4;
+
+    --white: #F8FAFC;
+    --muted: #94A3B8;
+
+    --inter: "Inter", sans-serif;
+    --mono: "JetBrains Mono", monospace;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.officer-page {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 40% 45%,
+            #131d2e 0%,
+            #0B0F17 65%
+        );
+
+    color: var(--white);
+
+    font-family: var(--inter);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   COMMAND BAR
+   ========================================================= */
+
+.command-bar {
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    background: rgba(9, 14, 23, .96);
+
+    border-bottom: 1px solid var(--border);
+
+    position: relative;
+
+    z-index: 1000;
+}
+
+
+.command-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.command-logo {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(6, 182, 212, .45);
+
+    background: rgba(6, 182, 212, .08);
+
+    font-size: 20px;
+
+    box-shadow:
+        0 0 20px rgba(6,182,212,.1);
+}
+
+
+.command-title {
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+}
+
+
+.command-subtitle {
+
+    margin-top: 3px;
+
+    color: #66788b;
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+
+    letter-spacing: .1em;
+}
+
+
+.command-status {
+
+    display: flex;
+
+    gap: 30px;
+
+    align-items: center;
+
+    font-family: var(--mono);
+
+    font-size: 10px;
+}
+
+
+.system-status {
+
+    color: var(--green);
+}
+
+
+.telemetry-status {
+
+    color: var(--cyan);
+}
+
+
+.status-dot,
+.cyan-dot,
+.footer-status {
+
+    display: inline-block;
+
+    width: 7px;
+
+    height: 7px;
+
+    margin-right: 6px;
+
+    border-radius: 50%;
+}
+
+
+.status-dot {
+
+    background: var(--green);
+
+    box-shadow: 0 0 10px var(--green);
+
+    animation: statusPulse 2s infinite;
+}
+
+
+.cyan-dot {
+
+    background: var(--cyan);
+
+    box-shadow: 0 0 10px var(--cyan);
+}
+
+
+@keyframes statusPulse {
+
+    0%,100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .35;
+    }
+}
+
+
+.command-time {
+
+    text-align: right;
+}
+
+
+.time-label {
+
+    display: block;
+
+    color: #536579;
+
+    font-family: var(--mono);
+
+    font-size: 8px;
+
+    margin-bottom: 3px;
+}
+
+
+.command-time strong {
+
+    color: var(--cyan);
+
+    font-family: var(--mono);
+
+    font-size: 15px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.command-layout {
+
+    height: calc(100vh - 120px);
+
+    display: grid;
+
+    grid-template-columns: 65% 35%;
+}
+
+
+/* =========================================================
+   MAP
+   ========================================================= */
+
+.map-panel {
+
+    position: relative;
+
+    min-width: 0;
+
+    border-right: 1px solid var(--border);
+}
+
+
+.map-header {
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    background: rgba(12,18,28,.9);
+
+    border-bottom: 1px solid var(--border);
+
+    position: relative;
+
+    z-index: 1000;
+}
+
+
+.map-label,
+.rail-label {
+
+    display: block;
+
+    color: #62758a;
+
+    font-family: var(--mono);
+
+    font-size: 10px;
+
+    letter-spacing: .1em;
+
+    margin-bottom: 5px;
+}
+
+
+.map-header h1 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+
+.map-controls {
+
+    display: flex;
+
+    gap: 5px;
+}
+
+
+.map-control {
+
+    height: 34px;
+
+    padding: 0 13px;
+
+    border: 1px solid #293a4b;
+
+    border-radius: 5px;
+
+    background: #0c141f;
+
+    color: #718397;
+
+    font-family: var(--mono);
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.map-control:hover,
+.map-control.active {
+
+    color: var(--cyan);
+
+    border-color: var(--cyan);
+
+    background: rgba(6,182,212,.08);
+}
+
+
+/* =========================================================
+   MAP CONTAINER
+   ========================================================= */
+
+.map-container {
+
+    position: absolute;
+
+    top: 72px;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+}
+
+
+#command-map {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #0b1018;
+}
+
+
+/* =========================================================
+   MAP OVERLAY
+   ========================================================= */
+
+.map-overlay-info {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 18px;
+
+    display: flex;
+
+    gap: 7px;
+
+    z-index: 1000;
+}
+
+
+.map-overlay-info > div {
+
+    min-width: 120px;
+
+    padding: 10px 12px;
+
+    border: 1px solid rgba(30,41,59,.95);
+
+    border-radius: 6px;
+
+    background: rgba(9,15,24,.88);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.map-overlay-info span {
+
+    display: block;
+
+    color: #62758a;
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+}
+
+
+.map-overlay-info strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-family: var(--mono);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.map-legend {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 18px;
+
+    display: flex;
+
+    gap: 15px;
+
+    padding: 10px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    background: rgba(9,15,24,.9);
+
+    backdrop-filter: blur(10px);
+
+    color: #8192a4;
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+
+    z-index: 1000;
+}
+
+
+.map-legend div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.legend-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+
+.legend-dot.red {
+    background: var(--red);
+}
+
+
+.legend-dot.orange {
+    background: var(--orange);
+}
+
+
+.legend-dot.yellow {
+    background: var(--yellow);
+}
+
+
+.legend-dot.green {
+    background: var(--green);
+}
+
+
+/* =========================================================
+   LEAFLET DARK UI
+   ========================================================= */
+
+.leaflet-control-zoom a {
+
+    background: #121824 !important;
+
+    color: var(--cyan) !important;
+
+    border-color: var(--border) !important;
+}
+
+
+.leaflet-control-zoom a:hover {
+
+    background: #182231 !important;
+}
+
+
+.leaflet-control-attribution {
+
+    background: rgba(11,15,23,.85) !important;
+
+    color: #68788b !important;
+}
+
+
+.leaflet-control-attribution a {
+
+    color: var(--cyan) !important;
+}
+
+
+/* =========================================================
+   COMMAND RAIL
+   ========================================================= */
+
+.command-rail {
+
+    min-width: 0;
+
+    padding: 14px;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            rgba(18,24,36,.96),
+            rgba(8,14,23,.98)
+        );
+}
+
+
+.command-rail::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+.command-rail::-webkit-scrollbar-thumb {
+
+    background: #26384a;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.rail-card {
+
+    padding: 16px;
+
+    margin-bottom: 11px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: rgba(12,20,31,.86);
+
+    transition: .25s;
+}
+
+
+.rail-card:hover {
+
+    transform: translateX(-2px);
+
+    border-color: rgba(6,182,212,.4);
+}
+
+
+.rail-card-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+
+.rail-card h2 {
+
+    margin: 0;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   THREAT
+   ========================================================= */
+
+.emergency-card {
+
+    border-color: rgba(239,68,68,.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(239,68,68,.08),
+            rgba(12,20,31,.95)
+        );
+}
+
+
+.critical-badge {
+
+    padding: 6px 8px;
+
+    border: 1px solid rgba(239,68,68,.3);
+
+    border-radius: 4px;
+
+    color: #ff6969;
+
+    background: rgba(239,68,68,.1);
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+}
+
+
+.threat-score {
+
+    display: flex;
+
+    align-items: baseline;
+
+    margin-top: 15px;
+}
+
+
+.threat-score strong {
+
+    color: var(--red);
+
+    font-family: var(--mono);
+
+    font-size: 43px;
+
+    line-height: 1;
+}
+
+
+.threat-score span {
+
+    color: #687b8e;
+
+    font-family: var(--mono);
+
+    font-size: 12px;
+}
+
+
+.threat-meter {
+
+    height: 6px;
+
+    margin: 11px 0;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+
+    background: #202936;
+}
+
+
+.threat-meter div {
+
+    height: 100%;
+
+    background: var(--red);
+
+    transition: width .5s ease;
+
+    box-shadow: 0 0 12px rgba(239,68,68,.4);
+}
+
+
+.rail-card p {
+
+    color: #8191a2;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    margin: 10px 0;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.dispatch-button {
+
+    width: 100%;
+
+    height: 42px;
+
+    border: 1px solid rgba(239,68,68,.5);
+
+    border-radius: 5px;
+
+    background: rgba(239,68,68,.09);
+
+    color: #ff6969;
+
+    font-family: var(--mono);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.dispatch-button:hover {
+
+    background: var(--red);
+
+    color: white;
+}
+
+
+/* =========================================================
+   INCIDENTS
+   ========================================================= */
+
+.queue-count {
+
+    color: var(--orange);
+
+    font-family: var(--mono);
+
+    font-size: 17px;
+}
+
+
+.incident-list {
+
+    margin-top: 12px;
+}
+
+
+.incident-item {
+
+    display: grid;
+
+    grid-template-columns: 28px 1fr auto;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px 5px;
+
+    border-bottom: 1px solid rgba(30,41,59,.7);
+}
+
+
+.incident-number {
+
+    color: #627487;
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+}
+
+
+.incident-info strong {
+
+    display: block;
+
+    color: #dce5ed;
+
+    font-size: 12px;
+}
+
+
+.incident-info span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #6d8092;
+
+    font-size: 10px;
+}
+
+
+.incident-priority {
+
+    padding: 4px 6px;
+
+    border-radius: 3px;
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+}
+
+
+.incident-item.critical .incident-priority {
+
+    color: var(--red);
+
+    background: rgba(239,68,68,.1);
+}
+
+
+.incident-item.high .incident-priority {
+
+    color: var(--orange);
+
+    background: rgba(249,115,22,.1);
+}
+
+
+.incident-item.elevated .incident-priority {
+
+    color: var(--yellow);
+
+    background: rgba(251,191,36,.1);
+}
+
+
+.view-all {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #6d8194;
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+
+    text-align: right;
+
+    cursor: pointer;
+}
+
+
+.view-all:hover {
+
+    color: var(--cyan);
+}
+
+
+/* =========================================================
+   TELEMETRY
+   ========================================================= */
+
+.telemetry-list {
+
+    margin-top: 12px;
+}
+
+
+.telemetry-item {
+
+    display: grid;
+
+    grid-template-columns: 34px 1fr auto;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid rgba(30,41,59,.6);
+}
+
+
+.sensor-id {
+
+    color: var(--cyan);
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+}
+
+
+.telemetry-item strong {
+
+    display: block;
+
+    color: #d7e1e9;
+
+    font-family: var(--mono);
+
+    font-size: 10px;
+}
+
+
+.telemetry-item span {
+
+    display: block;
+
+    color: #65788b;
+
+    font-size: 9px;
+
+    margin-top: 3px;
+}
+
+
+.telemetry-item b {
+
+    font-family: var(--mono);
+
+    font-size: 14px;
+}
+
+
+.telemetry-danger {
+    color: var(--red);
+}
+
+
+.telemetry-warning {
+    color: var(--orange);
+}
+
+
+.telemetry-safe {
+    color: var(--green);
+}
+
+
+/* =========================================================
+   SHELTER
+   ========================================================= */
+
+.shelter-bar {
+
+    height: 7px;
+
+    margin-top: 15px;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    background: #202a35;
+}
+
+
+.shelter-bar-fill {
+
+    height: 100%;
+
+    background: var(--green);
+
+    transition: width .5s ease;
+
+    box-shadow: 0 0 12px rgba(16,185,129,.35);
+}
+
+
+.shelter-capacity {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 8px;
+}
+
+
+.shelter-capacity strong {
+
+    color: var(--green);
+
+    font-family: var(--mono);
+
+    font-size: 16px;
+}
+
+
+.shelter-capacity span {
+
+    color: #687b8e;
+
+    font-size: 10px;
+}
+
+
+.shelter-capacity b {
+
+    color: var(--green);
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.command-actions {
+
+    display: grid;
+
+    gap: 7px;
+
+    margin-bottom: 10px;
+}
+
+
+.command-actions button {
+
+    height: 45px;
+
+    border-radius: 5px;
+
+    font-family: var(--mono);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.action-orange {
+
+    border: none;
+
+    background: var(--orange);
+
+    color: #111820;
+}
+
+
+.action-orange:hover {
+
+    background: #fb8535;
+
+    transform: translateY(-1px);
+}
+
+
+.action-ghost {
+
+    border: 1px solid #293b4c;
+
+    background: rgba(12,20,31,.7);
+
+    color: #b2bfcb;
+}
+
+
+.action-ghost:hover {
+
+    border-color: var(--cyan);
+
+    color: var(--cyan);
+
+    background: rgba(6,182,212,.05);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.command-footer {
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    border-top: 1px solid var(--border);
+
+    background: #070c14;
+
+    color: #607286;
+
+    font-family: var(--mono);
+
+    font-size: 9px;
+}
+
+
+.command-footer strong {
+
+    color: #8a9bab;
+
+    font-weight: 500;
+}
+
+
+.footer-status {
+
+    background: var(--green);
+
+    box-shadow: 0 0 8px var(--green);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .command-layout {
+
+        grid-template-columns: 60% 40%;
+    }
+
+    .command-status {
+
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .officer-page {
+
+        overflow: auto;
+    }
+
+    .command-bar {
+
+        height: 64px;
+
+        padding: 0 14px;
+    }
+
+    .command-layout {
+
+        height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+    }
+
+    .map-panel {
+
+        height: 60vh;
+
+        min-height: 480px;
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .command-rail {
+
+        overflow: visible;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .command-subtitle {
+
+        display: none;
+    }
+
+    .command-time {
+
+        display: none;
+    }
+
+    .map-header {
+
+        padding: 0 12px;
+    }
+
+    .map-header h1 {
+
+        font-size: 18px;
+    }
+
+    .map-control {
+
+        padding: 0 7px;
+
+        font-size: 8px;
+    }
+
+    .map-overlay-info {
+
+        left: 10px;
+
+        top: 10px;
+    }
+
+    .map-overlay-info > div {
+
+        min-width: auto;
+
+        padding: 7px;
+    }
+
+    .map-overlay-info strong {
+
+        font-size: 14px;
+    }
+
+    .map-legend {
+
+        left: 10px;
+
+        bottom: 10px;
+
+        gap: 8px;
+
+        flex-wrap: wrap;
+    }
+
+    .command-footer {
+
+        height: auto;
+
+        padding: 12px;
+
+        gap: 8px;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+/* =========================================================
+   MAP INCIDENT MARKER
+   ========================================================= */
+
+.map-incident-marker {
+
+    width: 34px;
+
+    height: 34px;
+
+    border: 2px solid;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: var(--mono);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    animation: incidentPulse 1.5s infinite;
+}
+
+
+@keyframes incidentPulse {
+
+    0% {
+
+        box-shadow: 0 0 0 0 rgba(239,68,68,.4);
+
+    }
+
+    70% {
+
+        box-shadow: 0 0 0 14px rgba(239,68,68,0);
+
+    }
+
+    100% {
+
+        box-shadow: 0 0 0 0 rgba(239,68,68,0);
+
+    }
+
+}
+
+
+#command-map {
+    width: 100%;
+    height: 560px;
+    min-height: 560px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   EVACUATION CENTER COMMAND MODULE
+   ========================================================= */
+
+.evacuation-management-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.evacuation-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.evacuation-card-top h2 {
+    margin: 5px 0 6px;
+}
+
+.evacuation-description {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    opacity: 0.65;
+}
+
+.evacuation-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(0, 220, 255, 0.25);
+
+    background: rgba(0, 220, 255, 0.08);
+
+    border-radius: 12px;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 0 20px rgba(0, 220, 255, 0.08);
+}
+
+
+/* =========================================================
+   STATUS STRIP
+   ========================================================= */
+
+.evacuation-status-strip {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 16px;
+    margin-bottom: 12px;
+
+    padding: 9px 11px;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    font-size: 10px;
+
+    letter-spacing: 0.5px;
+}
+
+.evacuation-status-strip > div {
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.evacuation-status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #38f59b;
+
+    box-shadow:
+        0 0 10px rgba(56, 245, 155, 0.8);
+}
+
+#evacuation-center-count {
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   ADD CENTER BUTTON
+   ========================================================= */
+
+.evacuation-add-btn {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 145, 55, 0.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 120, 30, 0.15),
+            rgba(255, 70, 20, 0.06)
+        );
+
+    color: inherit;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.evacuation-add-btn:hover {
+
+    transform: translateY(-2px);
+
+    border-color: rgba(255, 145, 55, 0.75);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 120, 30, 0.22),
+            rgba(255, 70, 20, 0.09)
+        );
+
+    box-shadow:
+        0 8px 25px rgba(255, 90, 20, 0.12);
+}
+
+.evacuation-add-btn:active {
+    transform: translateY(0);
+}
+
+
+.add-icon {
+
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(255, 120, 30, 0.18);
+
+    border: 1px solid rgba(255, 145, 55, 0.35);
+
+    font-size: 22px;
+}
+
+
+.add-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+.add-text strong {
+
+    font-size: 12px;
+
+    letter-spacing: 0.4px;
+}
+
+.add-text small {
+
+    font-size: 10px;
+
+    opacity: 0.5;
+}
+
+.add-arrow {
+
+    font-size: 18px;
+
+    opacity: 0.7;
+
+    transition: transform 0.2s ease;
+}
+
+.evacuation-add-btn:hover .add-arrow {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.evacuation-form {
+
+    margin-top: 14px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border: 1px solid rgba(0, 220, 255, 0.16);
+
+    box-shadow:
+        inset 0 0 25px rgba(0, 220, 255, 0.025);
+}
+
+.form-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+.form-header h3 {
+
+    margin: 4px 0 0;
+
+    font-size: 15px;
+}
+
+.form-live {
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 9px;
+
+    color: #38f59b;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.evacuation-form-group {
+
+    margin-bottom: 11px;
+}
+
+.evacuation-form-group label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.8px;
+
+    opacity: 0.55;
+}
+
+.evacuation-form-group input {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px 11px;
+
+    border-radius: 7px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    background: rgba(0, 0, 0, 0.2);
+
+    color: inherit;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.evacuation-form-group input:focus {
+
+    border-color: rgba(0, 220, 255, 0.55);
+
+    box-shadow:
+        0 0 0 2px rgba(0, 220, 255, 0.06);
+}
+
+.evacuation-form-group input::placeholder {
+    opacity: 0.3;
+}
+
+.evacuation-form-row {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   GPS COMMAND BOX
+   ========================================================= */
+
+.gps-command-box {
+
+    margin-top: 4px;
+    margin-bottom: 12px;
+
+    padding: 11px;
+
+    border-radius: 9px;
+
+    background: rgba(0, 220, 255, 0.035);
+
+    border: 1px solid rgba(0, 220, 255, 0.12);
+}
+
+.gps-command-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 10px;
+}
+
+.gps-command-icon {
+
+    font-size: 18px;
+}
+
+.gps-command-header div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.gps-command-header strong {
+
+    font-size: 10px;
+
+    letter-spacing: 0.5px;
+}
+
+.gps-command-header small {
+
+    font-size: 9px;
+
+    opacity: 0.45;
+}
+
+.gps-input-row {
+
+    display: flex;
+
+    gap: 7px;
+
+    margin-bottom: 8px;
+}
+
+.gps-input-row input {
+
+    width: 50%;
+
+    box-sizing: border-box;
+
+    padding: 9px;
+
+    border-radius: 6px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(0, 0, 0, 0.18);
+
+    color: inherit;
+
+    outline: none;
+
+    font-size: 11px;
+}
+
+.gps-input-row input:focus {
+
+    border-color: rgba(0, 220, 255, 0.5);
+}
+
+.gps-location-btn {
+
+    width: 100%;
+
+    padding: 9px;
+
+    border-radius: 6px;
+
+    border: 1px solid rgba(0, 220, 255, 0.2);
+
+    background: rgba(0, 220, 255, 0.07);
+
+    color: inherit;
+
+    cursor: pointer;
+
+    font-size: 9px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    letter-spacing: 0.5px;
+
+    transition: background 0.2s ease;
+}
+
+.gps-location-btn:hover {
+
+    background: rgba(0, 220, 255, 0.13);
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+   ========================================================= */
+
+.evacuation-form-actions {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.evacuation-cancel-btn,
+.evacuation-save-btn {
+
+    flex: 1;
+
+    padding: 10px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.5px;
+}
+
+.evacuation-cancel-btn {
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: inherit;
+}
+
+.evacuation-save-btn {
+
+    border: 1px solid rgba(255, 125, 40, 0.5);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 125, 40, 0.85),
+            rgba(255, 80, 25, 0.85)
+        );
+
+    color: white;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 18px rgba(255, 90, 20, 0.15);
+}
+
+.evacuation-save-btn:hover {
+
+    filter: brightness(1.1);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.evacuation-message {
+
+    min-height: 16px;
+
+    font-size: 10px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   EXISTING CENTERS
+   ========================================================= */
+
+.evacuation-centers-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.evacuation-center-item {
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* =========================================================
+   JAL SURAKSHA - ADD EVACUATION CENTER BUTTON
+   ========================================================= */
+
+#addShelterButton {
+    width: 100% !important;
+    min-height: 52px;
+
+    margin: 16px 0 18px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 20px;
+
+    border: 1px solid rgba(255, 166, 0, 0.55) !important;
+    border-radius: 13px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 150, 0, 0.20),
+            rgba(255, 85, 0, 0.30)
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 24px rgba(255, 120, 0, 0.14),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* HOVER */
+
+#addShelterButton:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 170, 0, 0.32),
+            rgba(255, 75, 0, 0.42)
+        ) !important;
+
+    border-color:
+        rgba(255, 190, 70, 0.95) !important;
+
+    box-shadow:
+        0 12px 32px rgba(255, 100, 0, 0.25),
+        0 0 18px rgba(255, 150, 0, 0.12);
+}
+
+
+/* CLICK */
+
+#addShelterButton:active {
+
+    transform: translateY(0);
+
+    box-shadow:
+        0 5px 14px rgba(255, 100, 0, 0.15);
+}
+
+
+/* FOCUS */
+
+#addShelterButton:focus-visible {
+
+    outline:
+        2px solid rgba(255, 190, 70, 0.9);
+
+    outline-offset: 3px;
+}
+
+
+/* ICON */
+
+#addShelterButton::first-letter {
+
+    font-size: 18px;
+
+}
