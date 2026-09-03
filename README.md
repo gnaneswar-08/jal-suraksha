@@ -1,178 +1,178 @@
-Jal Suraksha
+🌊 Jal Suraksha
 
-Jal Suraksha is a smart flood and emergency response web application designed to connect citizens with emergency officers during flood and disaster situations.
+Smart Flood & Disaster Response System
 
-Features
+Jal Suraksha is a web-based emergency response platform that connects citizens and emergency officers during flood and disaster situations.
 
-Citizen Portal
+Citizens can report emergencies and find evacuation centers, while officers can monitor incidents, assess risk, and manage evacuation centers through a centralized dashboard.
 
-Emergency SOS reporting
+✨ Features
 
-Flood/hazard reporting
+👤 Citizen Portal
 
-Current risk information
+🚨 Emergency SOS
 
-Incident information
+📍 Hazard and flood reporting
 
-Evacuation center information
+⚠️ Risk information
 
-Map-based evacuation support
+🏠 Evacuation center information
 
-Officer Portal
+🗺️ Map-based evacuation support
 
-Emergency dashboard
+🛡️ Officer Portal
 
-Incident monitoring
+📊 Emergency command dashboard
 
-Citizen report monitoring
+🚨 Citizen incident monitoring
 
-Sensor telemetry
+📡 Sensor monitoring
 
-Risk monitoring
+⚠️ Risk assessment
 
-Emergency response controls
+🏠 Register evacuation centers
 
-Register evacuation centers
+🗺️ Display evacuation centers on the map
 
-Display evacuation centers on the map
+🗑️ Delete evacuation centers
 
-Delete evacuation centers
+🚑 Emergency response controls
 
-Publish evacuation-center information to citizens
+🔐 Access Portal
 
-Login Portal
+The application provides separate entry points for:
 
-The home page provides separate entry points for:
+Citizen → Citizen Safety Portal
 
-Citizen Portal
+Officer → Emergency Command Portal
 
-Emergency Officer Portal
+🏗️ System Architecture
 
-Technology Stack
+                    JAL SURAKSHA
+                         │
+                  ┌──────┴──────┐
+                  │             │
+              CITIZEN        OFFICER
+               PORTAL         PORTAL
+                  │             │
+                  └──────┬──────┘
+                         │
+                    FLASK BACKEND
+                         │
+              ┌──────────┼──────────┐
+              │          │          │
+          INCIDENTS     SOS     EVACUATION
+                                   CENTERS
+                                      │
+                         ┌────────────┘
+                         │
+                        MAP
 
-Frontend: HTML, CSS, JavaScript
+🛠️ Tech Stack
 
-Backend: Python Flask
+Technology
 
-Maps: Leaflet / OpenStreetMap
+Usage
 
-Storage: Flask in-memory storage in the current prototype
+HTML
 
-Project Structure
+Frontend structure
+
+CSS
+
+UI and styling
+
+JavaScript
+
+Frontend functionality
+
+Python
+
+Backend
+
+Flask
+
+REST API and server
+
+Leaflet
+
+Interactive maps
+
+OpenStreetMap
+
+Map tiles
+
+📂 Project Structure
 
 Jal-Suraksha/
+│
 ├── backend/
 │   └── app.py
+│
 ├── frontend/
 │   ├── index.html
 │   ├── citizen.html
 │   ├── officer.html
+│   │
 │   ├── css/
 │   │   └── ...
+│   │
 │   └── js/
 │       ├── citizen.js
 │       └── officer.js
+│
 └── README.md
 
-Requirements
+🚀 Getting Started
 
-Python 3.9 or later and Flask.
+1. Clone the repository
 
-Install Flask:
+git clone <your-repository-url>
+cd Jal-Suraksha
+
+2. Install Flask
 
 pip install flask
 
-Run the Project
-
-From the backend directory, run:
+3. Start the server
 
 python app.py
 
-Then open:
+4. Open the application
 
 http://127.0.0.1:5000/
 
-Main Routes
+🔄 How It Works
 
-Route
+Emergency Reporting
 
-Purpose
+Citizen
+   ↓
+SOS / Hazard Report
+   ↓
+Flask Backend
+   ↓
+Officer Dashboard
+   ↓
+Emergency Response
 
-/
+Evacuation Centers
 
-Login / entry page
-
-/citizen
-
+Officer
+   ↓
+Register Evacuation Center
+   ↓
+Flask Backend
+   ↓
 Citizen Portal
+   ↓
+Center displayed on Map
 
-/officer
+🏠 Evacuation Center Management
 
-Officer Portal
+Officers can register a safe evacuation center using:
 
-/api/dashboard
-
-Dashboard data
-
-/api/risk
-
-Risk information
-
-/api/incidents
-
-Incident information
-
-/api/sensors
-
-Sensor information
-
-/api/shelter
-
-Shelter information
-
-/api/evacuation-centers
-
-Get/register evacuation centers
-
-/api/evacuation-centers/<id>
-
-Delete evacuation center
-
-/api/citizen-report
-
-Submit hazard report
-
-/api/sos
-
-Submit emergency SOS
-
-/api/citizen-reports
-
-Get citizen reports
-
-/api/citizen-current-incident
-
-Get latest citizen incident
-
-/api/health
-
-Server health check
-
-Evacuation Center Workflow
-
-Officer registers center
-        ↓
-Flask API
-        ↓
-Evacuation center data
-        ↓
- ┌──────┴──────┐
- ↓             ↓
-Officer Map   Citizen Portal
-
-An evacuation center contains:
-
-Name
+Center name
 
 Location
 
@@ -182,63 +182,51 @@ Latitude
 
 Longitude
 
-Occupancy/status information
+Registered centers are made available to the Citizen Portal and can be displayed on the map.
 
-Officers can add and delete centers. Registered centers can be retrieved by the Citizen Portal.
+💾 Data Storage
 
-Data Storage
-
-The current prototype uses Python in-memory lists:
+The current hackathon prototype uses in-memory storage for rapid development and demonstration.
 
 citizen_reports = []
 evacuation_centers = []
 
-This is suitable for a hackathon demonstration, but the data is lost when the Flask server restarts.
+Data resets when the Flask server restarts.
 
-For production, the project should use a persistent database such as SQLite or PostgreSQL.
+A future version can use SQLite or PostgreSQL for persistent storage.
 
-Map and GPS
+🔮 Future Scope
 
-The application uses Leaflet and OpenStreetMap for map visualization.
+Persistent database
 
-Browser geolocation can be used where GPS access is required. The browser must be given location permission.
+Secure authentication and role-based access
 
-Security Note
+Real-time WebSocket communication
 
-The current login page is intended for the hackathon prototype. A production deployment should add secure authentication, authorization, sessions, password/OTP handling, and role-based access control.
+IoT flood sensors
 
-Future Improvements
+SMS and push emergency alerts
 
-SQLite/PostgreSQL persistent storage
-
-Secure authentication
-
-Real-time WebSocket updates
-
-Real IoT sensor integration
-
-Road-based evacuation routing
-
-SMS/push emergency alerts
-
-Officer dispatch tracking
+Advanced road-based evacuation routing
 
 Cloud deployment
 
-Audit logs
+Offline emergency communication
 
-Offline/mesh-network emergency communication
+AI-based flood risk prediction
 
-Project Objective
+🎯 Project Goal
 
-Jal Suraksha connects citizens and emergency officers through a common disaster-response platform.
+Detect. Respond. Protect.
 
-Citizens can report danger, request emergency assistance, and locate safe evacuation centers.
+Jal Suraksha aims to reduce emergency response time by creating a common platform where citizens can request help and find safety, while officers can monitor situations and coordinate response.
 
-Officers can monitor incidents, assess risk, manage emergency response, and publish evacuation centers to citizens.
+👥 Team
 
-Development Status
+Jal Suraksha — Hackathon Project
 
-Project: Jal Suraksha
-Type: Smart Flood & Disaster Response Web Application
-Status: Hackathon Prototype
+📌 Project Status
+
+Hackathon Prototype
+
+Built to demonstrate an integrated citizen and emergency-response workflow for flood and disaster management.
